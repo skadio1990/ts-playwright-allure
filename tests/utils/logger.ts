@@ -31,15 +31,15 @@ const logger = winston.createLogger({
 });
 
 export default class CustomReporter implements Reporter {
-    onTestBegin(test: TestCase): void {
-        logger.info(`Test started : ${test.title}`);
-    }
+    // onTestBegin(test: TestCase): void {
+    //     logger.info(`Test started : ${test.title}`);
+    // }
 
-    onStepBegin(test: TestCase, result: TestResult, step: TestStep): void {
-        if (step.category === "test.step") {
-            logger.info(`Step started : ${step.title}`);
-        }
-    }
+    // onStepBegin(test: TestCase, result: TestResult, step: TestStep): void {
+    //     if (step.category === "test.step") {
+    //         logger.info(`Step started : ${step.title}`);
+    //     }
+    // }
 
     onTestEnd(test: TestCase, result: TestResult): void {
         logger[result.status === "passed" ? "info" : "error"](
@@ -47,13 +47,13 @@ export default class CustomReporter implements Reporter {
         );
     }
 
-    onStdOut(
-        chunk: string | Buffer,
-        test: void | TestCase,
-        result: void | TestResult
-    ): void {
-        logger.debug(`${test?.title} : ${chunk}`);
-    }
+    // onStdOut(
+    //     chunk: string | Buffer,
+    //     test: void | TestCase,
+    //     result: void | TestResult
+    // ): void {
+    //     logger.debug(`${test?.title} : ${chunk}`);
+    // }
 
     onStdErr(
         chunk: string | Buffer,
