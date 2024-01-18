@@ -36,3 +36,4 @@ And check out the following files:
 Visit https://playwright.dev/docs/intro for more information. ✨
 
 Happy hacking! 🎭# ts-playwright-allure
+# ts-playwright-allure
