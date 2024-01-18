@@ -5,7 +5,12 @@
     "author": "Denis Krasilnikov",
     "license": "ISC",
     "main": "index.js",
-    "scripts": {},
+    "scripts": {
+        "start": "playwright test --config=tests/api/api.config.ts",
+        "build": "allure generate test-results -o allure-report --clean --single-file",
+        "report-server": "playwright show-report allure-report",
+        "tests": "npx start; npx build; npx report-server"
+    },
     "keywords": [],
     "dependencies": {
         "@playwright/test": "^1.40.1",
@@ -14,7 +19,8 @@
         "get-port": "^7.0.0",
         "lighthouse": "^11.4.0",
         "playwright-lighthouse": "^3.2.6",
-        "winston": "^3.11.0"
+        "winston": "^3.11.0",
+        "os": "^0.1.2"
     },
     "type": "module"
 }

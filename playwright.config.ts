@@ -1,4 +1,5 @@
 import { defineConfig, devices } from "@playwright/test";
+import * as os from "os";
 
 /**
  * Read environment variables from file.
@@ -22,7 +23,25 @@ export default defineConfig({
     /* Reporter to use. See https://playwright.dev/docs/test-reporters */
     reporter: [
         // [`./tests/utils/logger.ts`],
-        [`allure-playwright`],
+        [
+            "allure-playwright",
+            {
+                outputFolder: "test-results",
+                categories: [
+                    {
+                        name: "Validations",
+                        messageRegex: ".*Validate.*",
+                    },
+                ],
+                environmentInfo: {
+                    framework: "Playwright",
+                    os_platform: os.platform(),
+                    os_release: os.release(),
+                    os_version: os.version(),
+                    node_version: process.version,
+                },
+            },
+        ],
         // [`html`, { outputFolder: "html-report", open: "never" }],
     ],
     /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
@@ -33,7 +52,7 @@ export default defineConfig({
         /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
         trace: "retain-on-failure",
         screenshot: "only-on-failure",
-        video: "retain-on-failure"
+        video: "retain-on-failure",
     },
 
     projects: [

@@ -1,4 +1,5 @@
-import { expect as baseExpect } from "@playwright/test";
+import { expect as baseExpect, APIResponse } from "@playwright/test";
+import { APIActions } from "../utils/APIactions";
 
 export const expect = baseExpect.extend({
     async toHaveProducts(productsPage) {
@@ -48,6 +49,46 @@ export const expect = baseExpect.extend({
             return {
                 pass: false,
                 message: () => `Custom Assert Failed : ${error.message}`,
+            };
+        }
+    },
+
+    async toBeStructuredLike(response: APIResponse, jsonExamplePath: string) {
+        const apiActions = new APIActions();
+
+        try {
+            await apiActions.toHaveValidStatusAndData(
+                response,
+                jsonExamplePath
+            );
+            return {
+                pass: true,
+                message: () =>
+                    "API response is structured like the expected JSON example.",
+            };
+        } catch (error) {
+            return {
+                pass: false,
+                message: () =>
+                    `API response does not match the expected structure. Details: ${error.message}`,
+            };
+        }
+    },
+
+    async toBeOk(response: APIResponse) {
+        const apiActions = new APIActions();
+        try {
+            await apiActions.verifyStatusCode(response);
+            return {
+                pass: true,
+                message: () =>
+                    "API response is structured like the expected JSON example.",
+            };
+        } catch (error) {
+            return {
+                pass: false,
+                message: () =>
+                    `API response does not match the expected structure. Details: ${error.message}`,
             };
         }
     },
