@@ -4,11 +4,13 @@ import { report } from "../utils/report";
 
 test("Assert Data Integrity", async ({ request }) => {
   report({
+    suite: "API",
+    subSuite: "Functional",
     description:
       'Verify successful execution of a GET request to the \
         "allele" endpoint, ensuring that the response status code is 200 \
         and subsequently validating the integrity of the API data returned.',
-    severity: "BLOCKER",
+    severity: "blocker",
   });
 
   const response = await request.get("https://data.cpicpgx.org/v1/allele", {

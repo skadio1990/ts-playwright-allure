@@ -6,7 +6,7 @@ import { allure } from "allure-playwright";
 import fs from "fs";
 
 test("Performance Test", async ({ browserName, loginPage, port }, testInfo) => {
-    report({ suite: "Essential", subSuite: "Performance" });
+    report({ suite: "Performance", subSuite: "Audit" });
 
     if (browserName === "firefox" || browserName == "webkit") {
         allure.logStep(`ignoring unsupported browser ${browserName}`);

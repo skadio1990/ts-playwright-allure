@@ -6,10 +6,10 @@
     "license": "ISC",
     "main": "index.js",
     "scripts": {
-        "start": "playwright test --config=tests/api/api.config.ts",
+        "start": "playwright test",
         "build": "allure generate test-results -o allure-report --clean --single-file",
         "report-server": "playwright show-report allure-report",
-        "tests": "npx start; npx build; npx report-server"
+        "tests": "npm run start; npm run build; npm run report-server"
     },
     "keywords": [],
     "dependencies": {

@@ -14,7 +14,7 @@ export class SiteLoginPage extends SiteBasePage {
         super(page);
         this.page = page;
         this.url = "https://www.saucedemo.com/";
-        
+
         this.title = page.locator(".login_logo", { hasText: "Swag Labs" });
         this.username = page.locator('[data-test="username"]');
         this.password = page.locator('[data-test="password"]');

@@ -1,4 +1,4 @@
-import { test as baseTest} from "@playwright/test";
+import { test as baseTest } from "@playwright/test";
 import getPort from "get-port";
 import { SiteBasePage } from "../pages/base.page";
 import { SiteLoginPage } from "../pages/login.page";
@@ -44,7 +44,7 @@ export const test = baseTest.extend<
     ],
     // browser: [
     //     async ({ port }, use) => {
-            
+
     //         const browser = await playwright[browserName].launch({
     //             args: [`--remote-debugging-port=${port}`],
     //         });
@@ -52,5 +52,4 @@ export const test = baseTest.extend<
     //     },
     //     { scope: "worker" },
     // ],
-    
 });

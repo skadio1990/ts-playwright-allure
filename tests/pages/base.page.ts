@@ -1,5 +1,5 @@
 import { Page, Locator, expect } from "@playwright/test";
-import config from "../../playwright.config"
+import config from "../../playwright.config";
 
 export class SiteBasePage {
     readonly page: Page;
@@ -21,7 +21,7 @@ export class SiteBasePage {
     constructor(page: Page) {
         this.page = page;
         this.baseURL = config.use?.baseURL;
-        
+
         // header
         this.header = page
             .locator("div")
@@ -51,10 +51,12 @@ export class SiteBasePage {
         await this.page.goto(url);
 
         this.page.on("console", (msg) => {
-            expect.soft(
-                msg.type() === "error",
-                `Console Log: ${msg.text()} ${msg.location().url}`
-            ).toBe(false);
+            expect
+                .soft(
+                    msg.type() === "error",
+                    `Console Log: ${msg.text()} ${msg.location().url}`
+                )
+                .toBe(false);
         });
     }
 }

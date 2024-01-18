@@ -32,6 +32,10 @@ export default defineConfig({
                         name: "Validations",
                         messageRegex: ".*Validate.*",
                     },
+                    {
+                        name: "Console Errors",
+                        messageRegex: ".*Console.*",
+                    },
                 ],
                 environmentInfo: {
                     framework: "Playwright",
