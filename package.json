@@ -9,7 +9,8 @@
         "start": "playwright test",
         "build": "allure generate test-results -o allure-report --clean --single-file",
         "report-server": "playwright show-report allure-report",
-        "tests": "npm run start; npm run build; npm run report-server"
+        "tests": "npm run start; npm run build; npm run report-server",
+        "jenkins": "playwright test; /opt/homebrew/bin/allure generate test-results -o allure-report --clean --single-file; playwright show-report allure-report &"
     },
     "keywords": [],
     "dependencies": {
