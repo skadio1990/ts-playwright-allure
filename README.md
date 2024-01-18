@@ -21,4 +21,3 @@ This command will execute all the tests using TypeScript, Playwright, and Allure
 
 For detailed test reports, including screenshots and additional information, you can check the generated Allure reports after the test execution.
 
-test
