@@ -1,3 +1,5 @@
+✔ Success! Created a Playwright Test project at /Users/skadio/kissterra
+
 Inside that directory, you can run several commands:
 
   npx playwright test
