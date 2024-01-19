@@ -7,22 +7,21 @@ const FileList = () => {
     const [isSidebarCollapsed, setSidebarCollapsed] = useState(false);
 
     useEffect(() => {
-        // Fetch initial file list
         axios
             .get("http://localhost:3002/api/files")
             .then((response) => setFiles(response.data.files))
             .catch((error) => console.error("Error fetching files:", error));
 
-        // Subscribe to real-time updates
         const eventSource = new EventSource(
             "http://localhost:3002/api/realtime"
         );
+        
         eventSource.onmessage = (event) => {
             const updatedFiles = JSON.parse(event.data).files;
             setFiles(updatedFiles);
         };
 
-        return () => eventSource.close(); // Close the EventSource connection on component unmount
+        return () => eventSource.close();
     }, []);
 
     const handleFileClick = (file: React.SetStateAction<null>) => {

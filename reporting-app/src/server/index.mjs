@@ -1,39 +1,49 @@
 import express from "express";
 import fs from "fs";
-import cors from "cors"; // Add this line to import cors
+import path from "path";
+import cors from "cors";
 
 const app = express();
-// Enable CORS for all routes
 app.use(cors());
 
-const folderPath = "./public/reports/"; // Replace with your server folder path
+const folderPath = "./public/reports/";
+
+const sortFilesByDate = (files) => {
+    return files
+        .map((file) => ({
+            file,
+            birthtime: fs.statSync(path.join(folderPath, file)).birthtime,
+        }))
+        .sort((a, b) => b.birthtime - a.birthtime)
+        .map((item) => item.file);
+};
 
 app.get("/api/files", (req, res) => {
     fs.readdir(folderPath, (err, files) => {
         if (err) {
             return res.status(500).send(err);
         }
-        const reversedFiles = files.reverse();
-        res.json({ files: reversedFiles });
+
+        const sortedFiles = sortFilesByDate(files);
+
+        res.json({ files: sortedFiles });
     });
 });
 
-// SSE endpoint for real-time updates
 app.get("/api/realtime", (req, res) => {
     res.setHeader("Content-Type", "text/event-stream");
     res.setHeader("Cache-Control", "no-cache");
 
-    // Watch for changes in the folder and broadcast to connected clients
     fs.watch(folderPath, (eventType, filename) => {
         const updatedFiles = fs.readdirSync(folderPath);
-        res.write(`data: ${JSON.stringify({ files: updatedFiles })}\n\n`);
+        const sortedFiles = sortFilesByDate(updatedFiles);
+
+        res.write(`data: ${JSON.stringify({ files: sortedFiles })}\n\n`);
     });
 });
 
-// Watch for changes in the folder and update the list
 fs.watch(folderPath, (eventType, filename) => {
     console.log("File change event:", eventType, filename);
-    // Optionally, broadcast the changes to connected clients
 });
 
 const port = 3002;

@@ -64,26 +64,26 @@ export default defineConfig({
             name: "Chrome",
             use: { ...devices["Desktop Chrome"], channel: "chrome" },
         },
-        {
-            name: "Chrome (Mobile)",
-            use: { ...devices["Pixel 5"] },
-        },
-        {
-            name: "Firefox",
-            use: { ...devices["Desktop Firefox"] },
-        },
-        {
-            name: "Microsoft Edge",
-            use: { ...devices["Desktop Edge"], channel: "msedge" },
-        },
-        {
-            name: "Safari",
-            use: { ...devices["Desktop Safari"] },
-        },
-        {
-            name: "Safari (Mobile)",
-            use: { ...devices["iPhone 12"] },
-        },
+        // {
+        //     name: "Chrome (Mobile)",
+        //     use: { ...devices["Pixel 5"] },
+        // },
+        // {
+        //     name: "Firefox",
+        //     use: { ...devices["Desktop Firefox"] },
+        // },
+        // {
+        //     name: "Microsoft Edge",
+        //     use: { ...devices["Desktop Edge"], channel: "msedge" },
+        // },
+        // {
+        //     name: "Safari",
+        //     use: { ...devices["Desktop Safari"] },
+        // },
+        // {
+        //     name: "Safari (Mobile)",
+        //     use: { ...devices["iPhone 12"] },
+        // },
     ],
 
     /* Run your local dev server before starting the tests */

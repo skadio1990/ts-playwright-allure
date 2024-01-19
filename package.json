@@ -7,10 +7,12 @@
     "main": "index.js",
     "scripts": {
         "start": "playwright test",
-        "build:history": "allure generate test-results -o allure-history; cp -r allure-history/history test-results/history",
-        "build": "allure generate test-results -o allure-report --clean --single-file; cp allure-report/index.html reporting-app/public/reports/$(date +'%Y%m%d_%H%M%S').html",
+        "save:history": "cp -r allure-history/history test-results/history",
+        "build:history": "allure generate test-results -o allure-history --clean",
+        "build:html": "allure generate test-results -o allure-report --clean --single-file",
+        "save:html": "cp allure-report/index.html reporting-app/public/reports/$(date +'%Y%m%d_%H%M%S').html",
         "report-server": "playwright show-report allure-report",
-        "tests": "npm run start; npm run build; npm run report-server",
+        "tests": "npm run start; npm run save:history; npm run build:history; npm run build:html; npm run save:html",
         "jenkins": "playwright test; /opt/homebrew/bin/allure generate test-results -o allure-report --clean --single-file; playwright show-report allure-report &"
     },
     "keywords": [],
