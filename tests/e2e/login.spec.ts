@@ -39,7 +39,7 @@ test.describe("Login Tests", () => {
         await expect(productsPage).toHaveNavigation();
     });
 
-    test.only("Login standard user", async ({ loginPage, productsPage }) => {
+    test("Login standard user", async ({ loginPage, productsPage }) => {
         await loginPage.useCredentials("standard_user");
         await expect(productsPage).toHaveProducts();
         await expect(productsPage).toHaveNavigation();

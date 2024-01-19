@@ -15,11 +15,11 @@ export default defineConfig({
     /* Run tests in files in parallel */
     fullyParallel: true,
     /* Fail the build on CI if you accidentally left test.only in the source code. */
-    forbidOnly: !!process.env.CI,
+    // forbidOnly: !!process.env.CI,
     /* Retry on CI only */
-    retries: process.env.CI ? 2 : 0,
+    // retries: process.env.CI ? 2 : 0,
     /* Opt out of parallel tests on CI. */
-    workers: process.env.CI ? 4 : undefined,
+    // workers: process.env.CI ? 4 : undefined,
     /* Reporter to use. See https://playwright.dev/docs/test-reporters */
     reporter: [
         [`./tests/utils/logger.ts`],
@@ -64,26 +64,26 @@ export default defineConfig({
             name: "Chrome",
             use: { ...devices["Desktop Chrome"], channel: "chrome" },
         },
-        // {
-        //     name: "Chrome (Mobile)",
-        //     use: { ...devices["Pixel 5"] },
-        // },
-        // {
-        //     name: "Firefox",
-        //     use: { ...devices["Desktop Firefox"] },
-        // },
-        // {
-        //     name: "Microsoft Edge",
-        //     use: { ...devices["Desktop Edge"], channel: "msedge" },
-        // },
-        // {
-        //     name: "Safari",
-        //     use: { ...devices["Desktop Safari"] },
-        // },
-        // {
-        //     name: "Safari (Mobile)",
-        //     use: { ...devices["iPhone 12"] },
-        // },
+        {
+            name: "Chrome (Mobile)",
+            use: { ...devices["Pixel 5"] },
+        },
+        {
+            name: "Firefox",
+            use: { ...devices["Desktop Firefox"] },
+        },
+        {
+            name: "Microsoft Edge",
+            use: { ...devices["Desktop Edge"], channel: "msedge" },
+        },
+        {
+            name: "Safari",
+            use: { ...devices["Desktop Safari"] },
+        },
+        {
+            name: "Safari (Mobile)",
+            use: { ...devices["iPhone 12"] },
+        },
     ],
 
     /* Run your local dev server before starting the tests */
