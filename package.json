@@ -7,7 +7,8 @@
     "main": "index.js",
     "scripts": {
         "start": "playwright test",
-        "build": "allure generate test-results -o allure-report --clean --single-file",
+        "build:history": "allure generate test-results -o allure-history; cp -r allure-history/history test-results/history",
+        "build": "allure generate test-results -o allure-report --clean --single-file; cp allure-report/index.html reporting-app/public/reports/$(date +'%Y%m%d_%H%M%S').html",
         "report-server": "playwright show-report allure-report",
         "tests": "npm run start; npm run build; npm run report-server",
         "jenkins": "playwright test; /opt/homebrew/bin/allure generate test-results -o allure-report --clean --single-file; playwright show-report allure-report &"
