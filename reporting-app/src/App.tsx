@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import statusIndicator from "./StatusIndicator";
 
-const FileList = () => {
+const App = () => {
     const [files, setFiles] = useState([]);
     const [selectedFile, setSelectedFile] = useState(null);
     const [isSidebarCollapsed, setSidebarCollapsed] = useState(false);
@@ -15,7 +16,7 @@ const FileList = () => {
         const eventSource = new EventSource(
             "http://localhost:3002/api/realtime"
         );
-        
+
         eventSource.onmessage = (event) => {
             const updatedFiles = JSON.parse(event.data).files;
             setFiles(updatedFiles);
@@ -34,10 +35,9 @@ const FileList = () => {
 
     return (
         <div style={{ display: "flex", height: "100vh" }}>
-            {/* Left Sidebar */}
             <div
                 style={{
-                    width: isSidebarCollapsed ? "50px" : "200px",
+                    width: isSidebarCollapsed ? "50px" : "220px",
                     border: "none",
                     color: "#999",
                     backgroundColor: "#343434",
@@ -49,14 +49,16 @@ const FileList = () => {
                     onClick={handleToggleSidebar}
                     style={{ cursor: "pointer" }}
                 >
-                    Toggle Sidebar
+                    Reports
                 </button>
-                <ul>
+                <ul style={{ listStyleType: "none", padding: 0 }}>
                     {files.map((file) => (
                         <li
                             key={file}
                             onClick={() => handleFileClick(file)}
                             style={{
+                                display: "flex",
+                                alignItems: "center",
                                 cursor: "pointer",
                                 color: selectedFile === file ? "#fff" : "#999",
                                 borderRight:
@@ -67,25 +69,36 @@ const FileList = () => {
                                 fontSize: "14px",
                                 lineHeight: "24px",
                                 transition: "color 0.3s",
-                            }}
-                            onMouseOver={(e) => {
-                                selectedFile !== file &&
-                                    ((e.target as HTMLLIElement).style.color =
-                                        "#fff");
-                            }}
-                            onMouseOut={(e) => {
-                                selectedFile !== file &&
-                                    ((e.target as HTMLLIElement).style.color =
-                                        "#999");
+                                overflow: "hidden",
                             }}
                         >
-                            {file}
+                            {statusIndicator([
+                                {
+                                    data: {
+                                        failed: 23,
+                                        broken: 0,
+                                        skipped: 0,
+                                        passed: 100,
+                                        unknown: 0,
+                                        total: 100,
+                                    },
+                                },
+                            ])}
+                            <span
+                                style={{
+                                    marginLeft: "12px",
+                                    display: isSidebarCollapsed
+                                        ? "none"
+                                        : "inline-block",
+                                }}
+                            >
+                                {file}
+                            </span>
                         </li>
                     ))}
                 </ul>
             </div>
 
-            {/* Main View */}
             <div style={{ flex: 1 }}>
                 {selectedFile && (
                     <iframe
@@ -103,4 +116,4 @@ const FileList = () => {
     );
 };
 
-export default FileList;
+export default App;
