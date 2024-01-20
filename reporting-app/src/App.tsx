@@ -43,6 +43,8 @@ const App = () => {
                     backgroundColor: "#343434",
                     overflowX: "hidden",
                     transition: "width 0.5s",
+                    fontFamily: "Helvetica,Arial,sans-serif",
+                    fontWeight: "bold",
                 }}
             >
                 <button
