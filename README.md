@@ -23,7 +23,7 @@ For detailed test reports, including screenshots and additional information, you
 
 ### `cd reporting-app; npm run app`
 
-# Features
+# Features ToDo
 
 ## Version Control
    - Use a version control system (e.g., Git) to manage your code. Keep your automation scripts, configurations, and infrastructure code in version control for traceability, collaboration, and rollback capabilities.

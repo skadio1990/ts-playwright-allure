@@ -51,13 +51,13 @@ export default class CustomReporter implements Reporter {
     //     logger.error(`Test ${result.status} after ${result.duration}ms : ${test.title}`);
     // }
 
-    // onStdOut(
-    //     chunk: string | Buffer,
-    //     test: void | TestCase,
-    //     result: void | TestResult
-    // ): void {
-    //     logger.debug(`${test?.title} : ${chunk}`);
-    // }
+    onStdOut(
+        chunk: string | Buffer,
+        test: void | TestCase,
+        result: void | TestResult
+    ): void {
+        logger.debug(`${test?.title} : ${chunk}`);
+    }
 
     // onStdErr(
     //     chunk: string | Buffer,
