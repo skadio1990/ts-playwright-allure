@@ -16,7 +16,7 @@ test.describe("Login Tests", () => {
         });
     });
 
-    test("Login without username", async ({ loginPage }) => {
+    test.only("Login without username", async ({ loginPage }) => {
         await loginPage.useCredentials("");
         await expect(loginPage.errorField).toContainText("Username");
     });
