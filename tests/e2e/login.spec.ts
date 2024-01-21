@@ -2,10 +2,10 @@ import { test } from "../fixtures/test";
 import { expect } from "../fixtures/expect";
 import { report } from "../utils/report";
 
-test.only("Login without username", async ({ loginPage }) => {
-    await loginPage.useCredentials("");
-    await expect(loginPage.errorField).toContainText("Username");
-});
+// test.only("Login without username", async ({ loginPage }) => {
+//     await loginPage.useCredentials("");
+//     await expect(loginPage.errorField).toContainText("Username");
+// });
 
 
 test.describe("Login Tests", () => {
@@ -16,7 +16,7 @@ test.describe("Login Tests", () => {
         });
     });
 
-    test("Login without username", async ({ loginPage }) => {
+    test.only("Login without username", async ({ loginPage }) => {
         await loginPage.useCredentials("");
         await expect(loginPage.errorField).toContainText("Username");
     });
