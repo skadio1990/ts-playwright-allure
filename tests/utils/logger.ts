@@ -3,7 +3,7 @@ import {
     TestCase,
     TestError,
     TestResult,
-    TestStep
+    TestStep,
 } from "@playwright/test/reporter";
 import winston from "winston";
 
@@ -64,6 +64,10 @@ export default class CustomReporter implements Reporter {
     }
 
     onError(error: TestError): void {
-        logger.error(error.message);
+        if (error.location) logger.error(`Error Location: ${error.location}`);
+        if (error.message) logger.error(`Error Message: ${error.message}`);
+        if (error.snippet) logger.error(`Error Snippet: ${error.snippet}`);
+        if (error.stack) logger.error(`Error Stack: ${error.stack}`);
+        if (error.value) logger.error(`Error Value: ${error.value}`);
     }
 }
