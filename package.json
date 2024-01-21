@@ -7,7 +7,7 @@
     "main": "index.js",
     "scripts": {
         "start": "playwright test",
-        "build:executors": "echo '{\"name\": \"Allure Report\",\"buildName\": \"'$BUILD_URL'\",\"buildUrl\": \"'$GIT_URL'\"}' > /Users/skadio/playground/test-results/executors.json",
+        "build:executors": "echo '{\"name\": \"Allure Report\",\"buildName\": \"'$BUILD_URL'\",\"buildUrl\": \"'$GIT_URL'\"}' > /Users/skadio/playground/test-results/executor.json",
         "save:history": "cp -r allure-history/history test-results/history",
         "build:history": "/opt/homebrew/bin/allure generate test-results -o allure-history --clean",
         "build:html": "/opt/homebrew/bin/allure generate test-results -o allure-report --clean --single-file",
