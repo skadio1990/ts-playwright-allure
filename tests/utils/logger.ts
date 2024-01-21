@@ -47,9 +47,9 @@ export default class CustomReporter implements Reporter {
     //     );
     // }
 
-    onTestEnd(test: TestCase, result: TestResult): void {
-        logger.error(`Test ${result.status} after ${result.duration}ms : ${test.title}`);
-    }
+    // onTestEnd(test: TestCase, result: TestResult): void {
+    //     logger.error(`Test ${result.status} after ${result.duration}ms : ${test.title}`);
+    // }
 
     // onStdOut(
     //     chunk: string | Buffer,
