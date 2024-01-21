@@ -41,10 +41,14 @@ export default class CustomReporter implements Reporter {
     //     }
     // }
 
+    // onTestEnd(test: TestCase, result: TestResult): void {
+    //     logger[result.status === "passed" ? "info" : "error"](
+    //         `Test ${result.status} after ${result.duration}ms : ${test.title}`
+    //     );
+    // }
+
     onTestEnd(test: TestCase, result: TestResult): void {
-        logger[result.status === "passed" ? "info" : "error"](
-            `Test ${result.status} after ${result.duration}ms : ${test.title}`
-        );
+        logger.error(`Test ${result.status} after ${result.duration}ms : ${test.title}`);
     }
 
     // onStdOut(
@@ -55,13 +59,13 @@ export default class CustomReporter implements Reporter {
     //     logger.debug(`${test?.title} : ${chunk}`);
     // }
 
-    onStdErr(
-        chunk: string | Buffer,
-        test: void | TestCase,
-        result: void | TestResult
-    ): void {
-        logger.error(`${test?.title} : ${chunk}`);
-    }
+    // onStdErr(
+    //     chunk: string | Buffer,
+    //     test: void | TestCase,
+    //     result: void | TestResult
+    // ): void {
+    //     logger.error(`${test?.title} : ${chunk}`);
+    // }
 
     onError(error: TestError): void {
         logger.error(

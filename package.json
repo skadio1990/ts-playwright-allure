@@ -8,12 +8,13 @@
     "scripts": {
         "start": "playwright test",
         "save:history": "cp -r allure-history/history test-results/history",
-        "build:history": "allure generate test-results -o allure-history --clean",
-        "build:html": "allure generate test-results -o allure-report --clean --single-file",
+        "build:history": "/opt/homebrew/bin/allure generate test-results -o allure-history --clean",
+        "build:html": "/opt/homebrew/bin/allure generate test-results -o allure-report --clean --single-file",
         "save:html": "cp allure-report/index.html reporting-app/public/reports/$(date +'%Y%m%d_%H%M%S').html",
         "report-server": "playwright show-report allure-report",
         "tests": "npm run start; npm run save:history; npm run build:history; npm run build:html; npm run save:html",
-        "jenkins": "playwright test; /opt/homebrew/bin/allure generate test-results -o allure-report --clean --single-file; playwright show-report allure-report &"
+        "jenkins": "npm run start; npm run save:history; npm run build:history; npm run build:html; npm run save:html",
+        "jenkins-old": "playwright test; /opt/homebrew/bin/allure generate test-results -o allure-report --clean --single-file; playwright show-report allure-report &"
     },
     "keywords": [],
     "dependencies": {
