@@ -11,6 +11,7 @@ test("Assert Data Integrity", async ({ request }) => {
         "allele" endpoint, ensuring that the response status code is 200 \
         and subsequently validating the integrity of the API data returned.',
     severity: "blocker",
+    link: ["https://api.cpicpgx.org", "Documentation"]
   });
 
   const response = await request.get("https://data.cpicpgx.org/v1/allele", {
