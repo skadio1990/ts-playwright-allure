@@ -133,3 +133,9 @@ For detailed test reports, including screenshots and additional information, you
 
 ## Backup and Recovery
     - Establish a robust backup and recovery strategy for the database. Regularly back up your data to prevent data loss and ensure quick recovery in case of failures.
+
+## Catching Flaky Tests
+   -  Regularly, once a week, review tests that consistently pass or fail to evaluate their relevance in the automation test suite.
+
+## Implement Mobile Notifications
+   - In today's context, mobile integration plays a crucial role in identifying errors and addressing anomalies while on the move.
