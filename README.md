@@ -28,202 +28,176 @@ For detailed test reports, including screenshots and additional information, you
 ### `cd reporting-app; npm run app`
 
 # Features ToDo
-
 ## Version Control
-   - Use a version control system (e.g., Git) to manage your code. Keep your automation scripts, configurations, and infrastructure code in version control for traceability, collaboration, and rollback capabilities.
+- Use Git for code management to ensure traceability and collaboration.
 
 ## Project Structure
-   - Organize your project into a clear and modular structure. Divide code into logical components and folders for easy maintenance and scalability.
+- Organize code modularly for easy maintenance and scalability.
 
 ## Dependency Management
-   - Utilize package managers (e.g., npm for TypeScript) to manage dependencies. Specify versions of your dependencies to ensure reproducibility.
+- Utilize package managers for dependency reproducibility.
 
 ## Configuration Management
-   - Keep configuration settings separate from code. Use configuration files or environment variables to make your code more flexible and easily adaptable to different environments.
+- Keep configurations separate for flexibility using files or environment variables.
 
 ## Documentation
-   - Document your code comprehensively. Include inline comments, README files, and any other relevant documentation to help other team members understand your infrastructure code.
+- Document comprehensively for team understanding.
 
-## Continuous Integration (CI) / Continuous Deployment (CD)
-   - Implement Jenkins CI/CD pipelines for automated testing, building, and deployment. This ensures that your automation infrastructure is continuously integrated and tested as changes are made.
+## Continuous Integration/Continuous Deployment (CI/CD)
+- Implement Jenkins pipelines for automated testing and deployment.
 
 ## Test Framework
-   - Choose a robust testing framework (e.g., Jest for TypeScript) that supports your testing needs. Write clear and maintainable test cases, and consider using Page Object Model (POM) for better test structure.
+- Choose a robust testing framework like Jest for TypeScript.
 
-## Logging and Reporting
-   - Implement proper logging for debugging purposes. Integrate Allure for detailed and readable test reports. This helps in identifying issues quickly.
+## Logging
+- Implement logging and Allure for detailed test reports.
 
 ## Error Handling
-   - Implement proper error handling mechanisms to make your automation scripts more resilient. Log meaningful error messages to facilitate troubleshooting.
+- Ensure proper error handling for script resilience.
 
 ## Security
-    - Ensure that sensitive information such as passwords or API keys is securely handled. Avoid hardcoding credentials in your code; use secure methods like environment variables or secure vaults.
+- Securely handle sensitive information using environment variables.
 
 ## Code Reviews
-    - Conduct regular code reviews to ensure code quality, adherence to coding standards, and knowledge sharing among team members.
-
-## Scalability and Maintenance
-    - Design your automation infrastructure to be scalable and easy to maintain. Consider future changes and updates, and plan your infrastructure to accommodate them.
-
-## Cross-Browser Testing
-   - Ensure your automation framework supports testing across multiple browsers and versions. Playwright is designed for cross-browser testing, so leverage its capabilities to validate your application's compatibility.
-
-## Parallel Execution
-   - Implement parallel execution of tests to save time and increase efficiency. This is crucial for handling larger test suites and reducing overall execution time.
-
-## Performance Testing
-   - Consider integrating performance testing into your automation infrastructure to identify and address potential performance issues early in the development process.
-
-## Data Management
-   - Establish a strategy for managing test data. This may involve setting up a separate environment for testing or creating scripts to prepare and clean up test data before and after test execution.
-
-## Dockerization
-   - Dockerize your automation infrastructure to create reproducible and portable test environments. This facilitates consistency across different development and testing environments.
-
-## Continuous Monitoring
-   - Implement continuous monitoring for your application and automation infrastructure. This helps detect issues early, such as flaky tests or environmental problems.
-
-## Integration with Test Management Tools
-   - Integrate your automation framework with test management tools for better test case organization, execution tracking, and reporting.
-
-## Feedback Loop
-   - Establish a feedback loop for developers and QA teams. Use automated notifications or alerts to inform relevant stakeholders about test results, failures, or other critical information.
-
-## Community Support and Updates
-   - Keep an eye on updates and releases for the tools and frameworks you are using. Stay connected with the community for support, discussions, and insights into best practices.
-
-## Accessibility Testing
-    - Consider incorporating accessibility testing into your automation suite to ensure your application is accessible to users with disabilities.
-
-## Code Quality Metrics
-    - Utilize code quality tools and metrics to analyze the health of your codebase. This includes static code analysis, code coverage reports, and adherence to coding standards.
-
-## Versioning
-    - Apply versioning to your automation scripts, configurations, and any infrastructure-related components. This ensures that changes are tracked, and you can roll back to previous versions if needed.
-
-## Results Storage
-   - Store test results, logs, and relevant metadata in a database. This provides a centralized location for historical test data, making it easier to analyze trends and identify patterns.
-
-## Dashboard Integration
-   - Integrate with reporting and dashboard tools to visualize test results. Dashboards provide a quick overview of the health of your application and the status of your test suites.
-
-## Historical Data Analysis
-   - Use the database to maintain historical data for trend analysis and performance monitoring. This helps in identifying patterns, regression issues, and improvements over time.
-
-## Test Metrics
-   - Capture and store key test metrics in the database. This might include execution time, pass/fail rates, and any custom metrics relevant to your application and testing goals.
-
-## Traceability
-   - Establish traceability between test results, code changes, and requirements. This can be valuable for auditing purposes and for understanding the impact of changes on test outcomes.
-
-## Automation Insights
-   - Leverage the database to gather insights into automation performance, such as the average execution time, the most frequently failing tests, or any recurring issues.
+- Conduct regular code reviews for quality and adherence to standards.
 
 ## Scalability
-   - Design the database schema to accommodate scalability. As your test suite grows, having a scalable database architecture ensures optimal performance and responsiveness.
+- Design for scalability and easy maintenance.
+
+## Cross-Browser Testing
+- Ensure cross-browser compatibility using tools like Playwright.
+
+## Parallel Execution
+- Implement parallel test execution for efficiency.
+
+## Performance Testing
+- Integrate performance testing for early issue identification.
+
+## Data Management
+- Establish a strategy for managing test data.
+
+## Dockerization
+- Dockerize automation infrastructure for consistency.
+
+## Continuous Monitoring
+- Implement continuous monitoring for early issue detection.
+
+## Integration with Test Management Tools
+- Integrate automation with test management tools.
+
+## Feedback Loop
+- Establish a feedback loop for stakeholders.
+
+## Community Support and Updates
+- Stay updated and connected with the community.
+
+## Accessibility Testing
+- Incorporate accessibility testing into the automation suite.
+
+## Code Quality Metrics
+- Use code quality tools for analysis.
+
+## Versioning
+- Apply versioning to scripts and configurations.
+
+## Results Storage
+- Store results and logs in a centralized database.
+
+## Dashboard Integration
+- Integrate with reporting tools for visualization.
+
+## Historical Data Analysis
+- Use the database for trend analysis.
+
+## Test Metrics
+- Capture and store key test metrics.
+
+## Traceability
+- Establish traceability between results, code changes, and requirements.
+
+## Automation Insights
+- Leverage the database for automation performance insights.
+
+## Scalable Database
+- Design the database schema for scalability.
 
 ## Security Considerations
-   - Implement security measures to protect sensitive data stored in the database, especially if it includes any confidential or personally identifiable information.
+- Implement measures to protect sensitive data in the database.
 
 ## API Integration
-   - Consider providing an API for interacting with the database. This allows other tools or systems to fetch and utilize test data programmatically.
+- Provide an API for interacting with the database.
 
 ## Alerts and Notifications
-    - Set up alerts and notifications based on database queries to get real-time information about critical issues or changes in test results.
+- Set up alerts based on database queries for real-time information.
 
 ## Backup and Recovery
-    - Establish a robust backup and recovery strategy for the database. Regularly back up your data to prevent data loss and ensure quick recovery in case of failures.
+- Establish a robust backup and recovery strategy for the database.
 
 ## Catching Flaky Tests
-   -  Regularly, once a week, review tests that consistently pass or fail to evaluate their relevance in the automation test suite.
+- Regularly review and evaluate tests for relevance.
 
-## Implement Mobile Notifications
-   - In today's context, mobile integration plays a crucial role in identifying errors and addressing anomalies while on the move.
+## Mobile Notifications
+- Implement mobile integration for error identification on the move.
 
 ## Intelligent Test Retry Mechanism
+- Implement a smart test retry mechanism for improved reliability.
 
-   - Implement a smart test retry mechanism to automatically rerun failed tests, considering intermittent failures or environmental issue This can improve the reliability of your test suite.
-Chaos Engineering
+## Chaos Engineering
+- Introduce chaos engineering principles for resilience.
 
-## Introduce chaos engineering 
-   - principles to your automation infrastructure. Simulate real-world issues in a controlled environment to identify system weaknesses and enhance overall resilience.
-Self-Healing Tests
+## Self-Healing Tests
+- Explore self-healing capabilities for smoother runs.
 
-## Explore self-healing
-   -  capabilities in your tests, where the automation framework can automatically correct certain issues during test execution, ensuring smoother and more reliable runs.
-A/B Testing Support
+## A/B Testing Support
+- Extend the framework for A/B testing scenarios.
 
-## Extend your automation framework 
-   - to support A/B testing scenarios, allowing for the validation of different versions or features in parallel to assess their impact on test outcomes.
-Advanced Reporting
+## Advanced Reporting
+- Enhance reporting with advanced analytics.
 
-## Enhance your reporting 
-   - by incorporating advanced analytics or visualizations. This can provide deeper insights into test trends, performance bottlenecks, and overall system health.
-Machine Learning Integration
+## Machine Learning Integration
+- Explore machine learning integration for predictive analysis.
 
-## Explore the integration    
-- of machine learning algorithms for predictive analysis. This can help identify potential issues before they manifest fully, based on historical data and patterns.
-Regulatory Compliance
+## Regulatory Compliance
+- Ensure compliance with industry regulations.
 
-## Ensure 
-   - that your automation framework complies with relevant industry regulations and standards. This is crucial for applications in sectors with specific compliance requirements.
-Automated Environment Setup
+## Automated Environment Setup
+- Automate test environment setup for consistency.
 
-## Implement scripts 
-   - to automate the setup of test environments, ensuring consistency and reducing manual effort in preparing the required infrastructure for testing.
-Code Obfuscation
+## Code Obfuscation
+- Consider code obfuscation for sensitive logic protection.
 
-## onsider implementing code obfuscation techniques 
-   - to protect sensitive logic or algorithms within your automation scripts, especially if they involve proprietary or confidential information.
-Knowledge Transfer Sessions
+## Knowledge Transfer Sessions
+- Conduct regular knowledge transfer sessions within the team.
 
-## Conduct regular knowledge transfer sessions 
-   - within the team to share insights, tips, and best practices related to the automation framework. This fosters a collaborative and continuously improving environment.
-Community Contribution
+## Community Contribution
+- Encourage team members to contribute to open-source projects.
 
-## Encourage team members to contribute to open-source projects 
-   - or share components of your automation framework with the testing community. This promotes knowledge exchange and receives valuable feedback.
-Custom Test Data Generation
+## Custom Test Data Generation
+- Develop mechanisms for on-the-fly test data generation.
 
-## Develop mechanisms for generating custom test data on-the-fly 
-   - to simulate various scenarios, ensuring a diverse and comprehensive test coverage.
-Regulatory Compliance
+## Automated Code Review
+- Implement automated code review tools.
 
-## Ensure that your automation framework complies with relevant industry regulations and standards. This is crucial for applications in sectors with specific compliance requirements.
-Automated Accessibility Testing
+## Dark Mode Testing
+- Include testing scenarios for dark mode.
 
-## Integrate automated accessibility testing
-   - tools into your framework to ensure that your application is accessible to users with disabilities.
-Automated Code Review
+## Browser Compatibility Matrix
+- Maintain a comprehensive matrix for broad compatibility.
 
-## Implement automated code review tools to analyze 
-   - your automation scripts for adherence to coding standards, best practices, and potential issues.
-Dark Mode Testing
+## Advanced Test Data Management
+- Implement strategies for managing complex test data scenarios.
 
-## If applicable, include testing scenarios for dark mode, 
-   - ensuring that your application provides a seamless experience in both light and dark themes.
-Browser Compatibility Matrix
+## Geo-Distributed Testing
+- Extend the framework for geo-distributed testing.
 
-## Maintain a comprehensive matrix of supported browsers, 
-   - versions, and platforms. Regularly update and test against this matrix to ensure broad compatibility.
-Advanced Test Data Management
+## Decentralized Test Execution
+- Explore decentralized test execution for scalability.
 
-## Implement strategies for managing
-   -  complex test data scenarios, such as data dependencies, data-driven testing, and the ability to simulate real-world data variations.
-Geo-Distributed Testing
+## Integration with CI/CD Orchestration
+- Integrate CI/CD with orchestration tools for complex workflows.
 
-## Extend your framework to support geo-distributed 
-   - testing, allowing you to simulate users accessing your application from different regions around the world.
-Decentralized Test Execution
+## Advanced Security Testing
+- Enhance security testing capabilities.
 
-## Explore decentralized test execution approaches
-   - distributing test execution across multiple machines or cloud services for improved scalability.
-Integration with CI/CD Orchestration
-
-## Integrate your CI/CD pipeline with 
-   - orchestration tools to manage complex workflows, dependencies, and parallel executions seamlessly.
-Advanced Security Testing
-
-## Enhance security testing capabilities 
-   - within your automation framework, including vulnerability assessments, penetration testing, and compliance checks.
-Keep in mind that the inclusion of these additional steps will depend on your specific project requirements and constraints.
+## BDD Testing Integration
+- Integrate BDD testing for wider stakeholder involvement.
