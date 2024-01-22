@@ -1,13 +1,28 @@
+/**
+ * Utility class for performing API-related actions and assertions.
+ */
 import { APIResponse, expect } from "@playwright/test";
 import { allure } from "allure-playwright";
 import * as fs from "fs";
 
 export class APIActions {
-    generateAssertionMessage(count, entityName) {
-        const pluralize = (count) => (count !== 1 ? "ies" : "y");
+    /**
+     * Generates an assertion message based on the count and entity name.
+     * @param count - Number of entities.
+     * @param entityName - Name of the entity.
+     * @returns Assertion message.
+     */
+    generateAssertionMessage(count: number, entityName: string): string {
+        const pluralize = (count: number): string =>
+            count !== 1 ? "ies" : "y";
         return `Asserting ${entityName} - ${count} entr${pluralize(count)}`;
     }
 
+    /**
+     * Asserts that the response has a valid status code and data integrity.
+     * @param response - API response object.
+     * @param jsonExamplePath - Path to the JSON example file for data comparison.
+     */
     async toHaveValidStatusAndData(
         response: APIResponse,
         jsonExamplePath: string
@@ -16,6 +31,10 @@ export class APIActions {
         await this.verifyDataIntegrity(response, jsonExamplePath);
     }
 
+    /**
+     * Verifies the status code of the API response and attaches the response body to the allure report.
+     * @param response - API response object.
+     */
     async verifyStatusCode(response: APIResponse): Promise<void> {
         const response_body = await response.json();
         await allure.attachment(
@@ -31,6 +50,11 @@ export class APIActions {
         ).toBeOK();
     }
 
+    /**
+     * Verifies the data integrity of the API response against a JSON example file.
+     * @param response - API response object.
+     * @param jsonExamplePath - Path to the JSON example file for data comparison.
+     */
     async verifyDataIntegrity(
         response: APIResponse,
         jsonExamplePath: string
@@ -66,6 +90,11 @@ export class APIActions {
         );
     }
 
+    /**
+     * Validates the data integrity of a response entry against the expected response.
+     * @param responseEntry - Actual response entry.
+     * @param expectedResponse - Expected response structure.
+     */
     private validateEntry(
         responseEntry: Record<string, any>,
         expectedResponse: Record<string, any>
