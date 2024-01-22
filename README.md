@@ -5,7 +5,10 @@ This project is a TypeScript-based automation framework using Playwright for bro
 Make sure you have the following installed:
 - Node.js
 - npm
+- allure
 - prometheus (optional)
+- grafana (optional)
+- jenkins (optional)
 
 ## Installation
 To install the dependencies, run:
