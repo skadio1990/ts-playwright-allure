@@ -2,11 +2,16 @@ import express from "express";
 import fs from "fs";
 import path from "path";
 import cors from "cors";
+import { register, collectDefaultMetrics, Gauge } from 'prom-client';
 
 const app = express();
 app.use(cors());
 
+// Register default metrics
+collectDefaultMetrics();
+
 const folderPath = "./public/reports/";
+const filePath = "/Users/skadio/playground/allure-history/export/prometheusData.txt";
 
 const sortFilesByDate = (files) => {
     return files
@@ -17,6 +22,24 @@ const sortFilesByDate = (files) => {
         .sort((a, b) => b.birthtime - a.birthtime)
         .map((item) => item.file);
 };
+
+// Create a Gauge metric for each line in the file
+const createMetrics = () => {
+    const data = fs.readFileSync(filePath, 'utf8');
+    const lines = data.trim().split('\n');
+
+    // Clear existing metrics
+    register.clear();
+
+    lines.forEach(line => {
+        const [metric, value] = line.split(' ');
+        const gauge = new Gauge({ name: metric, help: `Description for ${metric}` });
+        gauge.set(parseFloat(value));
+        register.registerMetric(gauge);
+    });
+};
+
+createMetrics(); // Call the function once to initialize the metrics
 
 app.get("/api/files", (req, res) => {
     fs.readdir(folderPath, (err, files) => {
@@ -39,7 +62,20 @@ app.get("/api/realtime", (req, res) => {
         const sortedFiles = sortFilesByDate(updatedFiles);
 
         res.write(`data: ${JSON.stringify({ files: sortedFiles })}\n\n`);
+
+        // Check if prometheusData.txt has changed
+        if (filename === 'prometheusData.txt' && eventType === 'change') {
+            console.log("prometheusData.txt has changed. Updating metrics.");
+            createMetrics();
+        }
     });
+});
+
+// Expose custom metrics endpoint
+app.get("/metrics", async (req, res) => {
+    await createMetrics(); // Update metrics on each /metrics request
+    res.set('Content-Type', register.contentType);
+    res.end(await register.metrics());
 });
 
 fs.watch(folderPath, (eventType, filename) => {
