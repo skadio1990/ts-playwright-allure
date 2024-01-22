@@ -38,6 +38,8 @@ export default defineConfig({
                     },
                 ],
                 environmentInfo: {
+                    baseURL: "https://www.saucedemo.com/",
+                    jenkinsURL: "http://localhost:8080/job/BuildJob/",
                     framework: "Playwright",
                     os_platform: os.platform(),
                     os_release: os.release(),
