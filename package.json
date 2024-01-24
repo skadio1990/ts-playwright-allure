@@ -7,7 +7,7 @@
     "main": "index.js",
     "scripts": {
         "start": "playwright test",
-        "build:executor": "/Users/skadio/playground/tests/scripts/executor.sh",
+        "build:executor": "/tests/scripts/executor.sh",
         "save:history": "cp -r allure-history/history test-results/history",
         "build:history": "/opt/homebrew/bin/allure generate test-results -o allure-history --clean",
         "build:html": "/opt/homebrew/bin/allure generate test-results -o allure-report --clean --single-file",
