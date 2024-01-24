@@ -1,5 +1,6 @@
+#!/bin/bash
+
 # Define variables for readability
-BUILD_NAME="$BUILD_NUMBER"
 BUILD_URL_WITH_CHANGES="$BUILD_URLchanges#$GIT_COMMIT"
 REPORT_NAME="Allure Report #$BUILD_NAME"
 
