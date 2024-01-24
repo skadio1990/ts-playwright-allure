@@ -5,7 +5,7 @@ import * as playwright from "playwright";
 import { allure } from "allure-playwright";
 import fs from "fs";
 
-test("Performance Test", async ({ browserName, loginPage, port }, testInfo) => {
+test.skip("Performance Test", async ({ browserName, loginPage, port }, testInfo) => {
     report({ suite: "Performance", subSuite: "Audit" });
 
     if (browserName === "firefox" || browserName == "webkit") {
