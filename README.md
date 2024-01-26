@@ -1,14 +1,20 @@
 # ts-playwright-allure
-This project is a TypeScript-based automation framework using Playwright for browser and API automation and Allure for test reporting. It provides a scalable and maintainable structure for writing end-to-end tests with a focus on functional and non-functional testing.
+This project is a TypeScript-based automation framework using Playwright for browser and API automation.
+It provides a scalable and maintainable structure for Behavior-Driven Development (BDD) focusing on functional and non-functional software testing. The platform centralizes test planning, execution, and tracking, with a built-in reporting server for consolidated Allure reports. It smoothly integrates with Jenkins for CI/CD workflows.
 
 ## Pre-Requisits
 Make sure you have the following installed:
 - Node.js
 - npm
 - allure
-- prometheus (optional)
-- grafana (optional)
-- jenkins (optional)
+- prometheus
+- grafana
+- jenkins
+- cucumber
+- httpd
+- php
+- mysql
+- Testlink
 
 ## Installation
 To install the dependencies, run:
