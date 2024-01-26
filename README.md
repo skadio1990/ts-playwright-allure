@@ -3,23 +3,34 @@ This project is a TypeScript-based automation framework using Playwright for bro
 It provides a scalable and maintainable structure for Behavior-Driven Development (BDD) focusing on functional and non-functional software testing. The platform centralizes test planning, execution, and tracking, with a built-in reporting server for consolidated Allure reports. It smoothly integrates with Jenkins for CI/CD workflows.
 
 ## Pre-Requisits
-Make sure you have the following installed:
+To enjoy the whole framework make sure you have the following installed (locally/remotely):
 - Node.js
 - npm
+<hr>
+
 - allure
+<hr>
+
 - prometheus
 - grafana
+<hr>
+
 - jenkins
+<hr>
+
 - cucumber
+<hr>
+
 - httpd
 - php
 - mysql
 - Testlink
 
 ## Installation
-To install the dependencies, run:
+To install the dependencies, run in the project directory:
 
 ### `npm install`
+### `cd reporting-app; npm install`
 
 ## Usage
 - Run all tests
