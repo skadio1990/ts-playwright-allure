@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Define variables for readability
-# BUILD_URL_WITH_CHANGES="$(BUILD_URL)changes#$(GIT_COMMIT)"
-BUILD_URL_WITH_CHANGES="${BUILD_URL}changes#${GIT_COMMIT}"
+BUILD_URL_WITH_CHANGES="$(BUILD_URL)changes#$(GIT_COMMIT)"
+# BUILD_URL_WITH_CHANGES="${BUILD_URL}changes#${GIT_COMMIT}"
 REPORT_NAME="Allure Report #$BUILD_NUMBER"
 
 # Construct the JSON payload in a more readable way
